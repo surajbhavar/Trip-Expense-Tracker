@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>View Expenses</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Expenses for Trip: <span th:text="${trip.name}"></span></h2>
+        <ul>
+            <li th:each="expense : ${expenses}">
+                <span th:text="${expense.description}"></span> - 
+                <span th:text="${expense.amount}"></span> 
+                paid by <span th:text="${expense.paidBy.name}"></span>
+            </li>
+        </ul>
+        <h3>Total Expense: <span th:text="${totalExpense}"></span></h3>
+    </div>
+</body>
+</html>

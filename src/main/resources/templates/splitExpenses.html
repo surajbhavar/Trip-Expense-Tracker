@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Split Expenses</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Expense Summary for Trip: <span th:text="${trip.name}"></span></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Member</th>
+                    <th>Paid</th>
+                    <th>Owes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="member : ${members}">
+                    <td th:text="${member.name}"></td>
+                    <td th:text="${#numbers.formatDecimal(tripService.calculateMemberOwe(trip, member), 2)}"></td>
+                    <td th:text="${#numbers.formatDecimal(tripService.calculateMemberShare(trip, member), 2)}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

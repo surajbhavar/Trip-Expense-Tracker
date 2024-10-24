@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>View Trips</title>
+</head>
+<body>
+    <div class="container">
+        <h2>All Trips</h2>
+        <ul>
+            <li th:each="trip : ${trips}">
+                <span th:text="${trip.name}"></span>
+                <a th:href="@{/viewExpenses(tripId=${trip.id})}">View Expenses</a>
+                <a th:href="@{/splitExpenses(tripId=${trip.id})}">Split Expenses</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
